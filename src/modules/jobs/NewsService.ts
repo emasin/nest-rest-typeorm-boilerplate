@@ -57,7 +57,7 @@ export class NewsService {
         INSERT INTO nm_point (user_id,point_reason,point_apply,point_before,point_after,point_total,created_at,updated_at)
     (
         SELECT T3.user_id,
-               concat(date_format(DATE_ADD(NOW(), INTERVAL -1 DAY), '%Y.%m.%d'), ' 활동 보상 이벤트') as point_reason,
+               concat(date_format(NOW(), '%Y.%m.%d'), ' 활동 보상 이벤트') as point_reason,
                point                                                                      as point_apply,
                point_before,
                point + point_before                                                       as point_after,
