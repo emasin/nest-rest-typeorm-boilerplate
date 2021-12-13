@@ -142,6 +142,10 @@ export class NewsService {
     }
 
 
+    @Cron(CronExpression.EVERY_30_SECONDS)
+    async test(){
+        this.logger.log('test!!')
+    }
     @Cron(CronExpression.EVERY_DAY_AT_10AM)
     async makeData(){
         /**
