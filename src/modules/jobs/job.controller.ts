@@ -1,0 +1,49 @@
+import {Controller, Get, Logger, Param, Req, Res, UseGuards} from '@nestjs/common';
+import {ApiBearerAuth, ApiResponse, ApiTags} from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
+import {NewsService} from './NewsService';
+import {IGenericMessageBody} from '../profile/profile.service';
+
+/**
+ * App Controller
+ */
+@ApiTags('job')
+@Controller('api/job')
+@Controller()
+export class JobController {
+
+  private readonly logger = new Logger(JobController.name);
+  /**
+   * Constructor
+   * @param {AppService} appService app service
+   */
+  constructor(private readonly newsService: NewsService) {}
+  /**
+   * Fetches request metadata
+   * @param {Req} req the request body
+   * @returns {Partial<Request>} the request user populated from the passport module
+   */
+  @Get(':date')
+  @ApiResponse({ status: 200, description: 'User Metadata Request Completed' })
+  @ApiResponse({ status: 400, description: 'User Metadata Request Failed' })
+  async createPoint(@Req() req, @Res() res,@Param('date') date: string):  Promise<IGenericMessageBody>{
+    await this.newsService.createPoint(date).finally(()=> {
+      this.logger.log('this.newsService.createPoint');
+    }    );
+
+    return res.send({'ok':true});
+  }
+  /**
+   * Fetches request metadata
+   * @param {Req} req the request body
+   * @returns {Partial<Request>} the request user populated from the passport module
+   */
+  @Get('makeData')
+  @ApiResponse({ status: 200, description: 'User Metadata Request Completed' })
+  @ApiResponse({ status: 400, description: 'User Metadata Request Failed' })
+  async getRequestUser(@Req() req, @Res() res):  Promise<IGenericMessageBody>{
+    await this.newsService.makeData();
+    this.logger.log('this.newsService.makeData');
+    return res.send({'ok':true});
+  }
+}

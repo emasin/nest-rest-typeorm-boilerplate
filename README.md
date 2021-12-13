@@ -14,6 +14,7 @@
 </p>
 
 ### 📚 Description
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/honggwangrak/WebstormProjects/nest-rest-typeorm-boilerplate/config/google-cloud-account.json"
 
 This boilerplate is made to quickly prototype backend applications. It comes with authentication, logging, security, and database features out of the box.
 

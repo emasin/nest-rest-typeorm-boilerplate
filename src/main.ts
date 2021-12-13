@@ -33,7 +33,7 @@ export const SWAGGER_API_CURRENT_VERSION = '1.0';
 (async () => {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter({ logger: console }),
+    new FastifyAdapter({ logger: true }),
   );
   const options = new DocumentBuilder()
     .setTitle(SWAGGER_API_NAME)
@@ -44,11 +44,7 @@ export const SWAGGER_API_CURRENT_VERSION = '1.0';
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup(SWAGGER_API_ROOT, app, document);
   app.enableCors();
-  app.register(headers);
-  app.register(fastifyRateLimiter, {
-    max: 100,
-    timeWindow: '1 minute',
-  });
+
   app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(9000, '0.0.0.0');

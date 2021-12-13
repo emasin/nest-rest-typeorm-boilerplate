@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "newming-8a774",
+  "private_key_id": "94103b8a90e7d6e569adb376df9f61204cff4f1a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCzTb5ru1Qpk+JS\nEvjrh0wd0TMc/QRKZZBqI4nvqzSJeP332DiL0/i1OXAK7DjBTB4pEh8Rk0rppTLH\nylTHZ1ODd3Usd33M/a5oi8IPY3y2bZDGGi/mQ6I9+C1+oRuDTgY2ATFke4bYiKG9\nQSWXvQaHVjfdbTyzvTQhOi+T6KCOsM1Wv1snPdNCUMQimL4rz6zB1DS/ba/GEOgt\nuGKgpfUQ/H6a5HOfSZm3ZAcD7ktrtNCe3rdhOvLyv7SJDmtHjD4kuCqT6biBz6yc\n4wTTaINw+Zh04kgIaes1fRZRHFi9hsFAmlaFd2LIhXziy9LuYnYiudSS46ugThBK\nFhvyOQj7AgMBAAECggEAJsnXO1QLmXECAVJUYhNjToH+pjNAFd4R1zw3706gr2qq\nuk6esPUatQ2nZN2ES6CtV6IxcWplRtUzfpARNg/uu56AjS2OW+W3MKunQA/8HzTl\noE1y9kPEWdaR9PZiTs32vwEUD9I/MiGgp6HrwX8lZeqrbC3g91sjZ1rAhyVIcoWE\n7E1IjCLCbRghSG4t8gOFYePyaL2gBZ7P6lhz2vVcCskkuWBYRdZJUnaO3FPbCXx8\no6nP+WJIszUB2+Ivv3J1hp9bfG0tNoc7eRPUJuBmejICi8XiMeAf1/Xy1fYXu1nw\neVCYubxUzt/YAt3budfDW4fJFW3YxpJI1etEVTVyHQKBgQDoiUNXks4Y8MdI3OGG\nqwui28qu87S3uZ6So3tkYB0RHVx+vZm4szv+PMbeNN/QmXYcAbnE2A7Is4f9vddE\nes/sIKL4+5dQPQs7w9xwrdJz83D5Cf3IumEMmn+4Z0t2wGWv0mdTZ+yzJ9oIhivc\nI6PkqHOjUGJFHgWlM+LcajC9NwKBgQDFZWkTPIxtjYCpuziKrZVT4Pmwwi3M86Fs\n8qB7ftqUTPLTY+Uamgd3FL1d6nZ9QLT1BQjuCUDtxmMO4sK6ZLmO5JW4TW//9b4q\ngtEy3wmShtVJlqwpJGhy/EiMyAYjQ9q/xer3Augu6kjUmcR5IZa0TcnqIVhvVxS5\nMllOrCQUXQKBgQCKwES3f3iMtzciSfIkCfHShnWFORPPQOnWs8fP1+3gJXXohjew\nVvpoNFmxgzk9XiR0h68SPp1rsnxlsp49VU61pa+5A16BWTtXuQHTFlTqLQtu/kA5\nQsTf4VxuauxDen/yjohq4ysAp7nYtj57h6SmrsD5ZOCOP2C8953ZSV+1twKBgElb\nVYArmThBRNZO2EVZGsxwJ/qTPvgSdiQJyq/6RXqlWfxK/GI1aZ7MW09iiaQkftsr\ngtULJVD3z+pBRQKF2huLQUSbqoqhpYkg0mOoVWNZrjvJvbMQb6yDquZ+kyFZ3xoz\nkA05zFVbBbPUbRpi7CGXYvkaaUX/Q5lLZ7r/5+yVAoGAK29s0skdQ0vXJwQa+ldE\npoRjhIuATjeC8FE7BXFU4gHNgiNOG05JCTKf2JVE0948tlCSa6kkRB5t6KhQlIYH\noeWnrdKkHQ+rotETsB6wLaFzOE2Q7gA0nuxqsJ+/VmiXsrMITVq0MHff6mNqx2dn\n22RRVYLAb0s6t0cElLsWIe0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "newming-api-account@newming-8a774.iam.gserviceaccount.com",
+  "client_id": "117724794573241542925",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/newming-api-account%40newming-8a774.iam.gserviceaccount.com"
+}

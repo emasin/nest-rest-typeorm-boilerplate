@@ -11,9 +11,13 @@ import { ProfileModule } from '../profile/profile.module';
 import { WinstonModule } from '../winston/winston.module';
 import { AccessControlModule } from 'nest-access-control';
 import { roles } from './app.roles';
-
+import {ScheduleModule} from '@nestjs/schedule';
+import {JobsModule} from '../jobs/jobs.module';
+import {TasksService} from '../jobs/news';
 @Module({
   imports: [
+    ScheduleModule.forRoot(),
+    JobsModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -72,7 +76,8 @@ import { roles } from './app.roles';
     AccessControlModule.forRoles(roles),
     ConfigModule,
     AuthModule,
-    ProfileModule,
+    ProfileModule
+
   ],
   controllers: [AppController],
   providers: [AppService],
