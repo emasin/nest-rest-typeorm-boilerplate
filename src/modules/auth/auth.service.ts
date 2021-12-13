@@ -2,7 +2,6 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { ProfileService } from '../profile/profile.service';
 import { ConfigService } from '../config/config.service';
 import { JwtService } from '@nestjs/jwt';
-import { Profile } from '../profile/profile.entity.bak';
 import { LoginPayload } from './payload/login.payload';
 
 /**
@@ -58,7 +57,7 @@ export class AuthService {
     username,
     name,
     email,
-  }: Profile): Promise<ITokenReturnBody> {
+  }: any): Promise<ITokenReturnBody> {
     return {
       expires: this.expiration,
       expiresPrettyPrint: AuthService.prettyPrintSeconds(this.expiration),
@@ -92,7 +91,7 @@ export class AuthService {
    * @param {LoginPayload} param login payload to authenticate with
    * @returns {Promise<Profile>} registered profile
    */
-  async validateUser({ username, password }: LoginPayload): Promise<Profile> {
+  async validateUser({ username, password }: LoginPayload): Promise<any> {
     const user = await this.profileService.getByUsernameAndPass(
       username,
       password,

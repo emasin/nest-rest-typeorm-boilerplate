@@ -14,6 +14,7 @@ import { RegisterPayload } from '../auth/payload/register.payload';
 
 import {Cron, CronExpression} from '@nestjs/schedule';
 import {HttpService} from '@nestjs/axios';
+import {ConfigService} from '../config/config.service';
 
 
 /**
@@ -29,7 +30,8 @@ export class NewsService {
     constructor(
         @InjectRepository(ActivityReward)
         private readonly rolesRepository: Repository<ActivityReward>,
-        private  readonly  httpService : HttpService
+        private  readonly  httpService : HttpService,
+        private readonly configService: ConfigService
     ) {}
 
 
@@ -144,7 +146,16 @@ export class NewsService {
 
     @Cron(CronExpression.EVERY_30_SECONDS)
     async test(){
-        this.logger.log('test!!')
+        this.logger.log(`test!! ${this.configService.get('APP_ENV')}`)
+    }
+
+    @Cron(CronExpression.EVERY_5_MINUTES)
+    async exec(){
+        this.logger.log(`test!! ${this.configService.get('APP_ENV')}`)
+        if(!this.configService.isEnv('production')){
+           this.logger.log(`exec!! ${this.configService.get('APP_ENV')}`)
+           await this.makeData();
+        }
     }
     @Cron(CronExpression.EVERY_DAY_AT_10AM)
     async makeData(){

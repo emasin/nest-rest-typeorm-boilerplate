@@ -7,9 +7,10 @@ import {NewsService} from './NewsService';
 import {ActivityReward} from './jobs.entity';
 import {JobController} from './job.controller';
 import {HttpModule} from '@nestjs/axios';
+import {ConfigModule} from '../config/config.module';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([ActivityReward]),HttpModule],
+    imports: [TypeOrmModule.forFeature([ActivityReward]),HttpModule,ConfigModule],
     providers: [NewsService],
     exports:[],
     controllers: [JobController],
