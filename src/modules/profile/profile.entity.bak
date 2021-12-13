@@ -1,7 +1,7 @@
 import { Exclude } from 'class-transformer';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { PasswordTransformer } from './password.transformer';
-import { Roles } from '../app/roles.entity';
+import { Roles } from '../app/roles.entity.bak';
 
 /**
  * Profile Entity Class

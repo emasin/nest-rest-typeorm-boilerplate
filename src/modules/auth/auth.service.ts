@@ -2,7 +2,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { ProfileService } from '../profile/profile.service';
 import { ConfigService } from '../config/config.service';
 import { JwtService } from '@nestjs/jwt';
-import { Profile } from '../profile/profile.entity';
+import { Profile } from '../profile/profile.entity.bak';
 import { LoginPayload } from './payload/login.payload';
 
 /**

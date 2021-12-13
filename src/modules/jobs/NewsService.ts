@@ -11,8 +11,9 @@ import { Repository } from 'typeorm';
 
 import { ActivityReward } from './jobs.entity';
 import { RegisterPayload } from '../auth/payload/register.payload';
-import { Roles } from '../app/roles.entity';
+
 import {Cron, CronExpression} from '@nestjs/schedule';
+import {HttpService} from '@nestjs/axios';
 
 
 /**
@@ -27,7 +28,8 @@ export class NewsService {
      */
     constructor(
         @InjectRepository(ActivityReward)
-        private readonly rolesRepository: Repository<ActivityReward>
+        private readonly rolesRepository: Repository<ActivityReward>,
+        private  readonly  httpService : HttpService
     ) {}
 
 
@@ -181,6 +183,10 @@ export class NewsService {
         await this.create(items);
         await this.createPoint(d);
         this.logger.log('done point')
+        /*
+        const c = await this.httpService.post('http://localhost:3801/v1/admin/push/send',{'title':'test','message':'test' , 'user_ids': 2})
+        this.logger.log(`push res ${c}`)
+         */
     }
 
 

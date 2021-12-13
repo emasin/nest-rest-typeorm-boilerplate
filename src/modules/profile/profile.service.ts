@@ -8,9 +8,9 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { Profile } from './profile.entity';
+import { Profile } from './profile.entity.bak';
 import { RegisterPayload } from '../auth/payload/register.payload';
-import { Roles } from '../app/roles.entity';
+import { Roles } from '../app/roles.entity.bak';
 import { PatchProfilePayload } from './payload/patch.profile.payload';
 
 /**

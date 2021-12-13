@@ -1,6 +1,6 @@
 import { Exclude } from 'class-transformer';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { Roles } from '../app/roles.entity';
+
 
 /**
  * Profile Entity Class

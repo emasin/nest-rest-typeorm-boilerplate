@@ -73,11 +73,7 @@ import {TasksService} from '../jobs/news';
             };
       },
     }),
-    AccessControlModule.forRoles(roles),
     ConfigModule,
-    AuthModule,
-    ProfileModule
-
   ],
   controllers: [AppController],
   providers: [AppService],
