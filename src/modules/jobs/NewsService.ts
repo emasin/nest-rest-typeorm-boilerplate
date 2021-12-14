@@ -148,6 +148,7 @@ export class NewsService {
     async test(){
         this.logger.log(`test!! ${this.configService.get('APP_ENV')}`)
     }
+    @Cron(CronExpression.EVERY_10_MINUTES)
     async exec(){
         this.logger.log(`test!! ${this.configService.get('APP_ENV')}`)
         if(!this.configService.isEnv('production')){
