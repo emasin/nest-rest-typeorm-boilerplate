@@ -156,6 +156,16 @@ export class NewsService {
            await this.makeData();
         }
     }
+
+    @Cron('* 30 22 * * *')
+    async execDEV(){
+        if(this.configService.isEnv('dev')){
+            this.logger.log(`exec!! ${this.configService.get('APP_ENV')}`)
+            await this.makeData();
+        }
+    }
+
+
     @Cron(CronExpression.EVERY_DAY_AT_1AM)
     async makeData(){
         /**
