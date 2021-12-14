@@ -1,9 +1,9 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
-import { AuthService, ITokenReturnBody } from './auth.service';
+import { AuthServiceTs, ITokenReturnBody } from './auth.service';
 import { LoginPayload } from './payload/login.payload';
 import { RegisterPayload } from './payload/register.payload';
-import { ProfileService } from '../profile/profile.service';
+import { ProfileServiceTs } from '../profile/profile.service';
 
 /**
  * Authentication Controller
@@ -13,12 +13,12 @@ import { ProfileService } from '../profile/profile.service';
 export class AuthController {
   /**
    * Constructor
-   * @param {AuthService} authService authentication service
-   * @param {ProfileService} profileService profile service
+   * @param {AuthServiceTs} authService authentication service
+   * @param {ProfileServiceTs} profileService profile service
    */
   constructor(
-    private readonly authService: AuthService,
-    private readonly profileService: ProfileService,
+    private readonly authService: AuthServiceTs,
+    private readonly profileService: ProfileServiceTs,
   ) {}
 
   /**

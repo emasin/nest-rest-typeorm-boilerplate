@@ -3,7 +3,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 
 import { ConfigService } from '../config/config.service';
-import { ProfileService } from '../profile/profile.service';
+import { ProfileService } from '../profile/profile.service.ts.bak';
 
 /**
  * Jwt Strategy Class

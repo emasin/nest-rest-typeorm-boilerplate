@@ -6,14 +6,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '../config/config.module';
 import { ConfigService } from '../config/config.service';
-import { AuthModule } from '../auth/auth.module';
-import { ProfileModule } from '../profile/profile.module';
 import { WinstonModule } from '../winston/winston.module';
 import { AccessControlModule } from 'nest-access-control';
 import { roles } from './app.roles';
 import {ScheduleModule} from '@nestjs/schedule';
 import {JobsModule} from '../jobs/jobs.module';
-import {TasksService} from '../jobs/news';
+
 @Module({
   imports: [
     ScheduleModule.forRoot(),

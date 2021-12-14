@@ -2,7 +2,7 @@ import {Controller, Get, Logger, Param, Req, Res, UseGuards} from '@nestjs/commo
 import {ApiBearerAuth, ApiResponse, ApiTags} from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 import {NewsService} from './NewsService';
-import {IGenericMessageBody} from '../profile/profile.service';
+import {IGenericMessageBody} from '../profile/profile.service.ts.bak';
 
 /**
  * App Controller
