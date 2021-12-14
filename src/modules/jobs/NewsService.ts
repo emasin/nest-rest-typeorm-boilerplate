@@ -144,13 +144,10 @@ export class NewsService {
     }
 
 
-    @Cron(CronExpression.EVERY_30_SECONDS)
+    @Cron(CronExpression.EVERY_MINUTE)
     async test(){
         this.logger.log(`test!! ${this.configService.get('APP_ENV')}`)
     }
-
-
-    @Cron(CronExpression.EVERY_12_HOURS)
     async exec(){
         this.logger.log(`test!! ${this.configService.get('APP_ENV')}`)
         if(!this.configService.isEnv('production')){
@@ -158,7 +155,7 @@ export class NewsService {
            await this.makeData();
         }
     }
-    @Cron(CronExpression.EVERY_10_MINUTES)
+    @Cron(CronExpression.EVERY_DAY_AT_1AM)
     async makeData(){
         /**
          * [{COPT: Content.Post}, {COAT: Content.Article}, {CMMT: Comment}, {CMPT: PortalComment(=CommentPortal)}
@@ -167,10 +164,19 @@ export class NewsService {
 
         const { BigQuery } = require('@google-cloud/bigquery');
         const bigquery = new BigQuery();
-        const query = 'SELECT *,FORMAT_DATETIME(\'%F %X\', DATETIME(TIMESTAMP(`timestamp`), \'Asia/Seoul\')) AS datetime  from `newming-8a774.fluentd.newming-api` where DATE(TIMESTAMP(`timestamp`)) >= DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY)';
+
+        this.logger.log('start')
+        const today = new Date();
+        today.setHours(today.getHours() + 9);
+        today.setDate(today.getDate()-1)
+        const  d = today.toISOString().replace('T', ' ').substring(0, 10);
+        this.logger.log('d ',d)
+
+        const query = 'SELECT *,FORMAT_DATETIME(\'%F %X\', DATETIME(TIMESTAMP(`timestamp`), \'Asia/Seoul\')) AS datetime  from `newming-8a774.fluentd.newming-api` where FORMAT_DATETIME(\'%F %X\', DATETIME(TIMESTAMP(`timestamp`), \'Asia/Seoul\'))  between @d and @d2';
         const options = {
             'query' : query,
             'location': 'US',
+            params: {d: d.concat(' 00:00:00'), d2: d.concat(' 23:59:59')}
         }
         const [job] = await bigquery.createQueryJob(options);
         const [rows] = await job.getQueryResults();
@@ -180,10 +186,7 @@ export class NewsService {
          * ${row.content_id} ${row.user_name}   ${row.user_id} ${row.action}
          * ${row.datetime} ${row.hash_key}   `));
          */
-        this.logger.log('start')
-        const today = new Date();
-        today.setHours(today.getHours() + 9);
-        const  d = today.toISOString().replace('T', ' ').substring(0, 10);
+
 
         rows.forEach((row)=>{
             if(row.user_name === null || !row.user_name) {
