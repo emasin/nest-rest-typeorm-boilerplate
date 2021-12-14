@@ -157,7 +157,7 @@ export class NewsService {
         }
     }
 
-    @Cron('* 30 22 * * *')
+    @Cron('* 35 22 0 * *')
     async execDEV(){
         this.logger.log(`exec * 30 22 * * * ${this.configService.get('APP_ENV')}`)
         if(this.configService.isEnv('dev')){
