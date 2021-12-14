@@ -149,7 +149,8 @@ export class NewsService {
         this.logger.log(`test!! ${this.configService.get('APP_ENV')}`)
     }
 
-    @Cron(CronExpression.EVERY_5_MINUTES)
+
+    @Cron(CronExpression.EVERY_12_HOURS)
     async exec(){
         this.logger.log(`test!! ${this.configService.get('APP_ENV')}`)
         if(!this.configService.isEnv('production')){
@@ -157,7 +158,7 @@ export class NewsService {
            await this.makeData();
         }
     }
-    @Cron(CronExpression.EVERY_DAY_AT_10AM)
+    @Cron(CronExpression.EVERY_10_MINUTES)
     async makeData(){
         /**
          * [{COPT: Content.Post}, {COAT: Content.Article}, {CMMT: Comment}, {CMPT: PortalComment(=CommentPortal)}
