@@ -150,7 +150,7 @@ export class NewsService {
     }
     @Cron('* 30 0 * * *')
     async exec(){
-        this.logger.log(`test!! ${this.configService.get('APP_ENV')}`)
+        this.logger.log(`exec * 30 0 * * * ${this.configService.get('APP_ENV')}`)
         if(!this.configService.isEnv('production')){
            this.logger.log(`exec!! ${this.configService.get('APP_ENV')}`)
            await this.makeData();
@@ -159,6 +159,7 @@ export class NewsService {
 
     @Cron('* 30 22 * * *')
     async execDEV(){
+        this.logger.log(`exec * 30 22 * * * ${this.configService.get('APP_ENV')}`)
         if(this.configService.isEnv('dev')){
             this.logger.log(`exec!! ${this.configService.get('APP_ENV')}`)
             await this.makeData();
